@@ -1,0 +1,41 @@
+source filters.rc
+set ignorecase
+;set tagignorecase
+;
+set tabstop 4
+set shiftwidth 4
+set notabinsert
+set autoindent
+set linewrap
+;
+set showmatch
+set noerrorbells
+set ruler
+;set popup-choices 1
+set nobackspacelimit
+set tagrelative
+set nospaces-after-sentence
+;set visual-matches underline
+bind-key split-current-window ^T        ; split into 'T'wo windows
+bind-key next-window ^N                 ; 'N'ext window
+bind-key pop [                          ; Pop tag stack -- used to use ^P
+bind-key find-tag ]                     ; can't use ^] with telnet
+;bind-key incremental-search /
+;bind-key reverse-incremental-search ?
+bind-key next-page \s
+bind-key goto-line g
+
+; to handle coloring
+set autocolor=2000
+setv $autocolor-hook HighlightFilterMsg
+setv $read-hook HighlightFilterMsg
+
+9 store-macro
+    ~force 1 shell-command &cat "man " $identifier
+~endm
+bind-key execute-macro-9 ^X-m
+8 store-macro
+    shell-command &cat &cat &cat &cat "rst2html.py " $cfilname " "$cfilname ".html'"
+~endm
+bind-key execute-macro-8 =
+
