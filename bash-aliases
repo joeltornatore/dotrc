@@ -1,0 +1,69 @@
+alias a=alias
+a f="function"
+
+a b='bash'
+a vi='vile'
+a dn='cat > /dev/null'
+a mv='mv -i'
+a cp='cp -i'
+a h='history'
+
+a ls="ls -FH"
+a l="ls -l"
+a lh="ls -lh"
+a la="ls -a"
+a cp="cp -i"
+a mv="mv -i"
+a bc="bc -l"
+a late="ls -lat | head"
+a bc="bc -l"
+a g="grep -i"
+a gr="grep -ir"
+a dn="cat > /dev/null"
+a h=history
+a pg='nslookup -timeout=5 google.com && ping -c5 -t5 google.com'
+a pd=pushd
+a po=popd
+a p=python
+a python=python3
+
+a wcl='wc -l'
+
+# machine aliases
+
+# git aliases
+a gb='git branch'
+a gc='git commit -am'
+a gd='git diff'
+a gp='git pull'
+a gpp='git push'
+a gs='git status'
+a master='git checkout master'
+a pull='git pull'
+a push='git push'
+a branch='git branch'
+
+
+# p4 aliases
+a pr="p4"
+a sc="p4 submit"
+a scu="p4 revert"
+a sd="p4 diff -dc"
+a sD="p4 diff"
+a se="p4 edit"
+a st="p4 opened"
+a sl="p4 filelog"
+a p4sync="p4 sync"
+a p4delete="p4 delete"
+a changes="p4 changelists -u jtornato | g pending"
+
+# screen stuff
+a left='screen -D -R left'
+a middle='screen -D -R middle'
+a right='screen -D -R right'
+
+
+a stash='cd ~/stash'
+
+# MacOS
+a code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'

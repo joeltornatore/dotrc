@@ -1,0 +1,61 @@
+####################
+### my functions ###
+####################
+
+function ff {
+	find . -type f -print | grep -i $*
+}
+
+function fd {
+	find . -type d -print | grep -i $*
+}
+
+function cd {
+	if [[ $1 == "" ]]; then
+	    builtin cd && echo -n "]2; $PWD " && pwd
+	else
+	    builtin cd "$*" && echo -n "]2; $PWD " && pwd
+	fi
+}
+
+function pygrep {
+    find . -name \*.py -exec egrep -i $@ {} /dev/null ";"
+}
+
+function phpgrep {
+    find . -name \*.php -exec egrep -i $@ {} /dev/null ";"
+}
+
+function ph {
+    p4 help $* | less
+}
+
+function p4integrate {
+    if (($# == 1)); then
+        target=$(basename $1)
+    else
+        target=$2
+    fi
+
+    p4 integrate $1 $target
+}
+
+function sev {
+    p4 edit $1 ; vi $1
+}
+
+function newhost {
+    scp -r ~/.{bash-aliases,bash-funcs,bash_profile,bashrc,bash_completion.d,screenrc} $1:
+}
+
+function setclient {
+    if (($# == 1)); then
+        export P4CLIENT=$1
+    elif [[ -z $P4CLIENT ]]; then
+        echo 'usage: setclient client-name'
+        echo '<TAB> to auto-complete.'
+        return
+    fi
+    cd $HOME/dev/$P4CLIENT
+    echo "P4CLIENT=$P4CLIENT"
+}
